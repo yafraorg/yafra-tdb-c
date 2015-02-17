@@ -13,7 +13,7 @@ before_install:
   - ls
 
 install:
-  - sudo apt-get install -qq libstdc++6:i386 lib32z1 build-essential libmotif4 libmotif-dev libxpm-dev libxml2-dev libmysqlclient-dev libgtk-3-dev perl-tk libdbi-perl libmysql-cil-dev symlinks clang glade doxygen
+  - sudo apt-get install -qq libstdc++6:i386 lib32z1 build-essential lesstif2-dev libxpm-dev libxml2-dev libmysqlclient-dev libgtk-3-dev perl-tk libdbi-perl libmysql-cil-dev symlinks clang glade doxygen
 #  - pip install -r requirements.txt
 
 before_script: 
