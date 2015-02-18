@@ -127,11 +127,29 @@ then
 fi
 
 #
+# create dirs
+#
+mkdir -p $WORKNODE
+mkdir -p $YAFRADOC
+mkdir -p $YAFRAMAN
+mkdir -p $YAFRAEXE
+mkdir -p $YAFRALIBPATH
+mkdir -p $YAFRALIBSO
+test -d $TDBO || mkdir $TDBO
+test -d $CMDSRVO || mkdir $CMDSRVO
+test -d $PSWHATO || mkdir $PSWHATO
+test -d $PSEDITO || mkdir $PSEDITO
+test -d $TESTSUITEO || mkdir $TESTSUITEO
+test -d $WORKNODE/apps || mkdir $WORKNODE/apps
+test -d $WORKNODE/yafra-dist || mkdir $WORKNODE/yafra-dist
+
+#
 # setup some variables
 #
 TIMESTAMP="$(date +%y%m%d)"
 VERREL="$YAFRAVER.$YAFRAREL-$BUILD_NUMBER"
 echo "-> settings for release $VERREL with basenode $BASENODE on $TIMESTAMP"
+echo "-> build number $BUILD_NUMBER"
 #
 echo "OSAHRED: $OSHARED and ODEBUG: $ODEBUG"
 
