@@ -13,7 +13,7 @@ echo "Make sure the environment is loaded!"
 #
 export YAFRAVER="1"
 export YAFRAREL="0"
-export YAFRAPATCH=$BUILD_NUMBER
+export YAFRAPATCH=$YAFRABUILD
 
 #
 # setup general paths
@@ -147,9 +147,9 @@ test -d $WORKNODE/yafra-dist || mkdir $WORKNODE/yafra-dist
 # setup some variables
 #
 TIMESTAMP="$(date +%y%m%d)"
-VERREL="$YAFRAVER.$YAFRAREL-$BUILD_NUMBER"
+VERREL="$YAFRAVER.$YAFRAREL-$YAFRABUILD"
 echo "-> settings for release $VERREL with basenode $BASENODE on $TIMESTAMP"
-echo "-> build number $BUILD_NUMBER"
+echo "-> build number $YAFRABUILD"
 #
 echo "OSAHRED: $OSHARED and ODEBUG: $ODEBUG"
 

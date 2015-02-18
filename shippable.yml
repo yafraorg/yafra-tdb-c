@@ -5,6 +5,10 @@ language: python
 python:
    - "3.3"
 
+env:
+  global:
+    - YAFRABUILD=$BUILD_NUMBER
+
 before_install:
   - sudo apt-get update -qq
   - sudo mkdir -p /work/yafra-runtime
@@ -25,6 +29,6 @@ script:
 
 after_success:
    - echo $BUILD_NUMBER
-   - sudo tar cvf /work/yafra-tdb-c-build.tar .
+   - sudo tar cvf /work/yafra-tdb-c-build.tar /work/yafra-runtime
    - sudo gzip /work/yafra-tdb-c-build.tar
    - sudo curl -T /work/yafra-tdb-c-build.tar.gz -u yafrarel@yafra.org:eoCvvg9J ftp://ftp.yafra.org/
