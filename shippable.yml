@@ -26,5 +26,5 @@ script:
 after_success:
    - echo $BUILD_NUMBER
    - sudo tar cvf /work/yafra-tdb-c-build.tar .
-#   - sudo gzip /work/yafra-java-build.tar
-#   - sudo curl -T /work/yafra-java-build.tar.gz -u yafrarel@yafra.org:eoCvvg9J ftp://ftp.yafra.org/
+   - sudo gzip /work/yafra-tdb-c-build.tar
+   - sudo curl -T /work/yafra-tdb-c-build.tar.gz -u yafrarel@yafra.org:eoCvvg9J ftp://ftp.yafra.org/
