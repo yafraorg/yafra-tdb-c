@@ -192,6 +192,11 @@ make all
 cd $WORKNODE/libs
 symlinks -c .
 
+if [ "$OSHARED" = "1" ]; then
+	sudo cp -P $WORKNODE/libs/* /usr/local/lib
+	sudo ldconfig
+fi
+
 # run some tests
 echo "\nRun some tests\n\n"
 $YAFRAEXE/pschar
