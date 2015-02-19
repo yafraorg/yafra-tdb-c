@@ -17,8 +17,8 @@
 #include <mpdbglob.h>
 #include <locale.h>
 
-#ifndef ps_osx
-//#include  <stdalign.h>
+#ifndef ps_linux
+#include  <stdalign.h>
 #endif
 
 #include "version.h"
@@ -45,7 +45,7 @@ void main()
 
 	printf("\nstructure test - test sizeof struct STATUS_WERTE and alignof()\n");
 	printf("sizeof STATUS_WERTE: %4d\n", sizeof(STATUS_WERTE));
-#ifndef ps_oxs
+#ifndef ps_linux
 	printf("alignof STATUS_WERTE: %4d\n", alignof(STATUS_WERTE));
 #endif
 
