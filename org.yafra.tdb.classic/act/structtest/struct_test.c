@@ -18,7 +18,7 @@
 #include <locale.h>
 
 #ifndef ps_osx
-#include  <stdalign.h>
+//#include  <stdalign.h>
 #endif
 
 #include "version.h"

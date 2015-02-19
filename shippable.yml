@@ -13,6 +13,7 @@ before_install:
   - sudo apt-get update -qq
   - sudo mkdir -p /work/yafra-runtime
   - sudo git clone https://github.com/yafraorg/yafra.git
+  - sudo git clone https://github.com/yafraorg/yafra-database.git
   - pwd
   - ls
 
@@ -27,10 +28,11 @@ before_script:
 script:
   - echo $BUILD_NUMBER
   - echo $YAFRABUILD
-  - sudo ./build-shippable.sh $BUILD_NUMBER
+  - sudo -E ./build-shippable.sh
 
 after_success:
    - echo $BUILD_NUMBER
    - sudo tar cvf /work/yafra-tdb-c-build.tar /work/yafra-runtime
-   - sudo gzip /work/yafra-tdb-c-build.tar
-   - sudo curl -T /work/yafra-tdb-c-build.tar.gz -u yafrarel@yafra.org:eoCvvg9J ftp://ftp.yafra.org/
+   - sudo -E cp /work/yafra-tdb-c-build.tar /work/yafra-tdb-c-build-$BUILD_NUMBER.tar
+   - sudo gzip /work/yafra-tdb-c-build*.tar
+   - sudo curl -T /work/yafra-tdb-c-build*.tar.gz -u yafrarel@yafra.org:eoCvvg9J ftp://ftp.yafra.org/
