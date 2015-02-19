@@ -20,7 +20,7 @@ export YAFRAPATCH=$YAFRABUILD
 #
 export BASENODE=/home/shippable/workspace/src/github.com/yafraorg/yafra-tdb-c
 export WORKNODE=/work/yafra-runtime
-export SYSADM=$BASENODE/yafra/org.yafra.sysadm
+export SYSADM=/work/repos/yafra/org.yafra.sysadm
 export YAFRATOOLS=$SYSADM/defaults
 export YAFRABIN=$SYSADM/defaults/scripts
 export YAFRADOC=$WORKNODE/doc
@@ -199,11 +199,33 @@ fi
 
 # run some tests
 echo "\nRun some tests\n\n"
-$YAFRAEXE/pschar
-$YAFRAEXE/pslog
-$YAFRAEXE/psdatetime -d 01.01.1013 -t 12.30
-$YAFRAEXE/psdatetime -d 01.02.2013 -t 12.30
-$YAFRAEXE/psdatetime -d 01.03.2113 -t 12.30
-$YAFRAEXE/psdatetime -d 01.04.3013 -t 12.30
+
+echo "============================================================"
+echo " TEST CASE: yafra ansi c common libraries test"
+echo "============================================================"
+$BINDIR/pschar
+$BINDIR/pslog
+$BINDIR/psdatetime -d 01.01.1013 -t 12.30
+$BINDIR/psdatetime -d 01.02.2013 -t 12.30
+$BINDIR/psdatetime -d 01.03.2113 -t 12.30
+$BINDIR/psdatetime -d 01.04.3013 -t 12.30
+$BINDIR/psclientcons $DBSERVER
+
+#get releases of binaries
+echo "============================================================"
+echo " TEST CASE TDB 1: tdb - get information on binaries"
+echo "============================================================"
+ldd $BINDIR/mpdbi
+ldd $BINDIR/mpgui
+ldd $BINDIR/mpnet
+$BINDIR/pswhat -i $BINDIR/pswhat
+$BINDIR/pswhat $BINDIR/mpdbi
+$BINDIR/pswhat $BINDIR/mpgui
+
+echo "============================================================"
+echo " TEST CASE TDB 2: tdb classic test db access and structure - reading db"
+echo "============================================================"
+$BINDIR/mpstruct
+$BINDIR/mptest -n localhost
 
 echo "done - save in /work"

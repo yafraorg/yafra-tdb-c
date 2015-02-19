@@ -11,11 +11,18 @@ env:
 
 before_install:
   - sudo apt-get update -qq
+  - sudo echo "[mysqld]" > /etc/mysql/conf.d/yafra.cnf
+  - sudo echo "lower_case_table_names=1" >> /etc/mysql/conf.d/yafra.cnf
+  - sudo mysqladmin shutdown
+  - sudo su -c "/usr/bin/mysqld_safe > /dev/null 2>&1 &"
   - sudo mkdir -p /work/yafra-runtime
+  - sudo mkdir -p /work/repos
+  - cd /work/repos
   - sudo git clone https://github.com/yafraorg/yafra.git
   - sudo git clone https://github.com/yafraorg/yafra-database.git
   - pwd
   - ls
+  - cd -
 
 install:
   - sudo apt-get install -qq libstdc++6:i386 lib32z1 build-essential lesstif2-dev libxpm-dev libxml2-dev libmysqlclient-dev libgtk-3-dev perl-tk libdbi-perl libmysql-cil-dev symlinks clang glade doxygen
@@ -24,6 +31,7 @@ install:
 before_script: 
   - mkdir -p shippable/testresults
   - mkdir -p shippable/codecoverage
+  - sudo -E /work/repos/yafra-database/build-db.sh mysql
 
 script:
   - echo $BUILD_NUMBER
@@ -32,7 +40,10 @@ script:
 
 after_success:
    - echo $BUILD_NUMBER
+   - sudo rm -rf /work/yafra-runtime/obj
    - sudo tar cvf /work/yafra-tdb-c-build.tar /work/yafra-runtime
    - sudo -E cp /work/yafra-tdb-c-build.tar /work/yafra-tdb-c-build-$BUILD_NUMBER.tar
    - sudo gzip /work/yafra-tdb-c-build*.tar
-   - sudo curl -T /work/yafra-tdb-c-build*.tar.gz -u yafrarel@yafra.org:eoCvvg9J ftp://ftp.yafra.org/
+   - sudo curl -T /work/yafra-tdb-c-build.tar.gz -u yafrarel@yafra.org:eoCvvg9J ftp://ftp.yafra.org/
+   - sudo curl -T /work/yafra-tdb-c-build-$BUILD_NUMBER.tar.gz -u yafrarel@yafra.org:eoCvvg9J ftp://ftp.yafra.org/
+   
