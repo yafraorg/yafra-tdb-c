@@ -25,7 +25,9 @@ before_script:
   - mkdir -p shippable/codecoverage
 
 script:
-  - sudo ./build-shippable.sh
+  - echo $BUILD_NUMBER
+  - echo $YAFRABUILD
+  - sudo ./build-shippable.sh $BUILD_NUMBER
 
 after_success:
    - echo $BUILD_NUMBER
