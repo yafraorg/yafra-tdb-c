@@ -96,7 +96,8 @@ endif
 
 ifeq ($(PS_OS),ps_linux)
 ADDLIBS	=
-ADDON		= -I/usr/include/clang/3.0/include
+#ADDON		= -I/usr/include/clang/3.0/include
+ADDON =
 endif
 
 ifeq ($(PS_OS),ps_hpux)

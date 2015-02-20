@@ -203,29 +203,29 @@ echo "\nRun some tests\n\n"
 echo "============================================================"
 echo " TEST CASE: yafra ansi c common libraries test"
 echo "============================================================"
-$BINDIR/pschar
-$BINDIR/pslog
-$BINDIR/psdatetime -d 01.01.1013 -t 12.30
-$BINDIR/psdatetime -d 01.02.2013 -t 12.30
-$BINDIR/psdatetime -d 01.03.2113 -t 12.30
-$BINDIR/psdatetime -d 01.04.3013 -t 12.30
-$BINDIR/psclientcons $DBSERVER
+$YAFRAEXE/pschar
+$YAFRAEXE/pslog
+$YAFRAEXE/psdatetime -d 01.01.1013 -t 12.30
+$YAFRAEXE/psdatetime -d 01.02.2013 -t 12.30
+$YAFRAEXE/psdatetime -d 01.03.2113 -t 12.30
+$YAFRAEXE/psdatetime -d 01.04.3013 -t 12.30
+$YAFRAEXE/psclientcons $DBSERVER
 
 #get releases of binaries
 echo "============================================================"
 echo " TEST CASE TDB 1: tdb - get information on binaries"
 echo "============================================================"
-ldd $BINDIR/mpdbi
-ldd $BINDIR/mpgui
-ldd $BINDIR/mpnet
-$BINDIR/pswhat -i $BINDIR/pswhat
-$BINDIR/pswhat $BINDIR/mpdbi
-$BINDIR/pswhat $BINDIR/mpgui
+ldd $YAFRAEXE/mpdbi
+ldd $YAFRAEXE/mpgui
+ldd $YAFRAEXE/mpnet
+$YAFRAEXE/pswhat -i $YAFRAEXE/pswhat
+$YAFRAEXE/pswhat $YAFRAEXE/mpdbi
+$YAFRAEXE/pswhat $YAFRAEXE/mpgui
 
 echo "============================================================"
 echo " TEST CASE TDB 2: tdb classic test db access and structure - reading db"
 echo "============================================================"
-$BINDIR/mpstruct
-$BINDIR/mptest -n localhost
+$YAFRAEXE/mpstruct
+$YAFRAEXE/mptest -n localhost
 
 echo "done - save in /work"
