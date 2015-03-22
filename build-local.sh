@@ -126,6 +126,16 @@ then
 	exit
 fi
 
+
+test -d $TDBO || mkdir -p $TDBO
+test -d $CMDSRVO || mkdir -p $CMDSRVO
+test -d $PSWHATO || mkdir -p $PSWHATO
+test -d $PSEDITO || mkdir -p $PSEDITO
+test -d $TESTSUITEO || mkdir -p $TESTSUITEO
+test -d $WORKNODE/apps || mkdir -p $WORKNODE/apps
+test -d $WORKNODE/yafra-dist || mkdir -p $WORKNODE/yafra-dist
+
+
 #
 # setup some variables
 #
