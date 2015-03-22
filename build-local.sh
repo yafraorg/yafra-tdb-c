@@ -17,8 +17,9 @@ export YAFRAPATCH=$BUILD_NUMBER
 #
 # setup general paths
 #
-export BASENODE=/home/shippable/workspace/src/github.com/yafraorg/yafra-tdb-c
+export BASENODE=/work/repos
 export WORKNODE=/work/yafra-runtime
+export TDBNODE=/work/repos/yafra-tdb-c
 export SYSADM=$BASENODE/yafra/org.yafra.sysadm
 export YAFRATOOLS=$SYSADM/defaults
 export YAFRABIN=$SYSADM/defaults/scripts
@@ -44,8 +45,8 @@ export HARDWARE=$PS_HW
 #
 # setup include/lib path
 #
-export YAFRAINC=$BASENODE/org.yafra.clibs/include
-export YAFRALIBS=$BASENODE/org.yafra.clibs/libs
+export YAFRAINC=$TDBNODE/org.yafra.clibs/include
+export YAFRALIBS=$TDBNODE/org.yafra.clibs/libs
 export YAFRALIBPATH=$WORKNODE/libs
 export INCX11=`$YAFRABIN/getx11inc`
 export INCMOTIF=`$YAFRABIN/getmotifinc`
@@ -83,11 +84,11 @@ export PSMATRIXLIBO=$YAFRALIBSO
 # section: travelDB
 #
 #travelDB
-export TDB=$BASENODE/org.yafra.tdb.classic
+export TDB=$TDBNODE/org.yafra.tdb.classic
 export TDBCS=$TDB/csharp
 export TDBS=$TDB
 export TDBI=$MAPOS/include
-export TDBSETUP=$BASENODE/org.yafra.tdb.setup
+export TDBSETUP=$TDBNODE/org.yafra.tdb.setup
 export TDBDB=$TDBSETUP/db
 export TDBO=$WORKNODE/obj/tdb
 
@@ -101,10 +102,10 @@ export TDBMYSQL=1
 #
 # add on's
 #
-export YAFRAADDONS=$BASENODE
-export CMDSRV=$BASENODE/org.yafra.tdb.addons.cmdsrv
-export PSWHAT=$BASENODE/org.yafra.tdb.addons.pswhat
-export PSEDIT=$BASENODE/org.yafra.tdb.addons.psedit
+export YAFRAADDONS=$TDBNODE
+export CMDSRV=$TDBNODE/org.yafra.tdb.addons.cmdsrv
+export PSWHAT=$TDBNODE/org.yafra.tdb.addons.pswhat
+export PSEDIT=$TDBNODE/org.yafra.tdb.addons.psedit
 export CMDSRVO=$WORKNODE/obj/addons
 export PSWHATO=$WORKNODE/obj/addons
 export PSEDITO=$WORKNODE/obj/addons
