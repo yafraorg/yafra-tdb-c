@@ -127,6 +127,8 @@ then
 fi
 
 
+test -d $YAFRALIBPATH || mkdir -p $YAFRALIBPATH
+test -d $YAFRALIBSO || mkdir -p $YAFRALIBSO
 test -d $TDBO || mkdir -p $TDBO
 test -d $CMDSRVO || mkdir -p $CMDSRVO
 test -d $PSWHATO || mkdir -p $PSWHATO
