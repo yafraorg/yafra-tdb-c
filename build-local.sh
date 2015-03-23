@@ -81,8 +81,7 @@ make all
 #CLASSIC/TDB
 cd $TDBS
 make mpapi
-make mpgui
-#make all
+make all
 
 if [ "$PS_COMPTYPE" = "ps_unix" ]; then
 	if [ "$PS_OS" != "ps_cygwin" ]; then

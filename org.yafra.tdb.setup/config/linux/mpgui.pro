@@ -17,7 +17,8 @@
 #
 # 1: database name (Oracle SID, Mysql Schema)
 # 2/3: user / pwd
+# (the user / pwd must be available on server side - add it by using adduser)
 #
-1:tdbadmin
+1:DOCKER_MYSQL_IP
 2:tdbadmin
 3:yafra
