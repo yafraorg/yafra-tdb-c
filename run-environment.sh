@@ -52,7 +52,7 @@ export TDBCS=$TDB/csharp
 export TDBS=$TDB
 export TDBI=$MAPOS/include
 export TDBSETUP=$TDBNODE/org.yafra.tdb.setup
-export TDBDB=$TDBSETUP/db
+export TDBDB=$YAFRADB/traveldb
 export TDBO=$WORKNODE/obj/tdb
 
 #set which database to use

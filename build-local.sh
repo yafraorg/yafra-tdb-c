@@ -14,35 +14,7 @@ export YAFRAVER="1"
 export YAFRAREL="0"
 export YAFRAPATCH=$BUILD_NUMBER
 
-#
-# setup general paths
-#
-export BASENODE=/work/repos
-export JAVANODE=/work/repos/yafra-java
-export TDBNODE=/work/repos/yafra-tdb-c
-export WORKNODE=/work/yafra-runtime
-export SYSADM=$BASENODE/yafra/org.yafra.sysadm
-export YAFRATOOLS=$SYSADM/defaults
-export YAFRABIN=$SYSADM/defaults/scripts
-export YAFRADOC=$WORKNODE/doc
-export YAFRAMAN=$WORKNODE/man
-export YAFRAEXE=$WORKNODE/bin
-    
-export PATH=$PATH:$YAFRABIN:$YAFRAEXE
-
-#
-# setup system
-#
-export PS_TARGET=`$YAFRABIN/gettarget`
-export PS_OSTYPE=`$YAFRABIN/getostype`
-export PS_OS=`$YAFRABIN/getos`
-export PS_OSVER=`$YAFRABIN/getosver`
-export PS_COMPTYPE=$PS_OSTYPE
-export PS_HW=`$YAFRABIN/gethardware`
-export PS_HOSTNAME=`$YAFRABIN/getserver`
-export HARDWARE=$PS_HW
-
-./run-environment.sh
+source ./run-environment.sh
 
 #
 #
