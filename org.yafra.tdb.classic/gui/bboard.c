@@ -637,7 +637,7 @@ static XtCallbackProc xBMboardMenubarAction(Widget w, XtPointer Input, XtPointer
 	event = (XEvent *)any->event;
 
 	if (event->type == ButtonPressMask)
-		return;
+		return 0;
 	bd = actcallback->board;
 
 	/*--- Callback actions ----------------------------*/

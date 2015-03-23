@@ -112,7 +112,7 @@ XtCallbackProc xBMdlnSexSelect(Widget w, XtPointer toggleIndex, XtPointer wdata)
 
 	/*---- are state and my selection identical? ------*/
 	if ((sexArea.select[(int)toggleIndex] == state) && (wdata != NULL))
-		return;
+		return 0;
 
 	else if (wdata == NULL)
 		/*---- undefined state, set one ----------------*/

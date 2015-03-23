@@ -52,11 +52,11 @@ XtCallbackProc xBMmenubutton ( Widget w, XtPointer field, XtPointer wdata )
 	{
 		xfeld = xBMfeldnr( b, (Widget)field);
 		if (xfeld == -1)
-			return ; 
+			return 0;
 		bm_aktfield = xfeld;
 	} 
 	else 
-		return ;                                      /* >>>>>>>> exit >>>>>>*/
+		return 0;                                      /* >>>>>>>> exit >>>>>>*/
 
 
 	/*---- check Search mode (UPDATE+DELETE) -------------------------------*/

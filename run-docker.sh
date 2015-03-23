@@ -40,8 +40,12 @@ cp etc/tdb/MPgui $X11APPDEF
 
 echo "/usr/local/lib" > yafratdb.conf
 ldconfig
+/usr/local/bin/tdb-setup-services.pl
 
 echo "run tests"
 $BINDIR/mptest -n $DB_PORT_3306_TCP_ADDR
+$BINDIR/mpdbi -daemon
+$BINDIR/mpnet -daemon
+$BINDIR/psserver -daemon
 
 echo "done - running now under tomcat"

@@ -117,7 +117,7 @@ XtCallbackProc xBMdlnReduc1Select( Widget w, XtPointer toggleIndex, XtPointer wd
 	state = ((XmToggleButtonCallbackStruct *)wdata)->set;
 	/*---- are state and my selection identical? ------*/
 	if ((pA->select[(int)toggleIndex] == state) && (wdata != NULL))
-		return;
+		return 0;
 	else if (wdata == NULL)
 		/*---- undefined state, set one ----------------*/
 		XtVaSetValues(w, XmNset, True, NULL);
