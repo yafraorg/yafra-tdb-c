@@ -5,9 +5,12 @@ language: python
 python:
    - "3.3"
 
+# crypted vars BINTRAYAPI, YAFRAFTPPWD
 env:
   global:
     - YAFRABUILD=$BUILD_NUMBER
+    - secure: LijN5AW7rWLpODuCluF34tywjqB4P2igUUh4jTtmuICkwj5U4DRuD1iVzlDNVYX2r7I2vElEDg+QAw1VvDhqNGJIRUvg3fcNyyxUCBtKBgpzoVLBFmBK6j8zWPfxpjkEL9tvGPRlMZrRv7YMp7ODyZHH0tES5F5sb/GA/EahE7ilvtN5UWxbUpO+LmzlJDM8eT2w5R2eSYpNNBkugIRkZZn3VfqejM+IBC3Goh7fJ4G3ofwp+SJxbYxGrxNb4rKWVIyHG6q9KJgTa5b6tcV8sbOOvL4R89oIKkfMtJ9FFcnZrQvs3AOfZwh4Lhm50G2BOmsLehf0qB9kTnxI7g/Cjw==
+    - secure: UIU0VcV9LKpEBwdh6VPR0n15zZhT40UG4d2hCn2ckaoXjcq92FVzwZ1yKo+b/eyIuzFyCLqqwZww3UXc6L6T5rZjghZzN4bVrDACWbzxc/3ujzSwCla3HpEexJLQTsbsAvj/r7a+CUF6R6BEQnlIOtk+fWvfEfuns3bPQuJW0I97d8jwlTkI2ZlnmV/DM1niAWPW3KUJmPMNomv5FuzhlE8qXNdkylG5iPLQEssRALjZZCvoFendSqhDN10CDNYlw2Yqu9GbMnscr/QNsz4BL8VM5bjQaJZYVYG0GMEGKuwr/IkIxTQfarQe6k6rrOInvHafcAleRyBLHr6afEYC3w==
 
 before_install:
   - sudo apt-get update -qq
@@ -44,6 +47,6 @@ after_success:
    - sudo tar cvf /work/yafra-tdb-c-build.tar /work/yafra-runtime
    - sudo -E cp /work/yafra-tdb-c-build.tar /work/yafra-tdb-c-build-$BUILD_NUMBER.tar
    - sudo gzip /work/yafra-tdb-c-build*.tar
-   - sudo curl -T /work/yafra-tdb-c-build.tar.gz -u yafrarel@yafra.org:eoCvvg9J ftp://ftp.yafra.org/
-   - sudo curl -T /work/yafra-tdb-c-build-$BUILD_NUMBER.tar.gz -u yafrarel@yafra.org:eoCvvg9J ftp://ftp.yafra.org/
+   - sudo curl -T /work/yafra-tdb-c-build-$BUILD_NUMBER.tar.gz -u yafraorg:$BINTRAYAPI https://api.bintray.com/content/yafraorg/yafra-distribution/yafra-tdb-c/v1.0/
+   - sudo curl -T /work/yafra-tdb-c-build.tar.gz -u yafrarel@yafra.org:$YAFRAFTPPWD ftp://ftp.yafra.org/
    
