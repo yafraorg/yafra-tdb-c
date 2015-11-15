@@ -88,6 +88,7 @@
 #ifdef SYSV
 
 #include <string.h>
+#include <stdlib.h>
 /* #define index(s,c) strchr(s,c) */
 /* #define rindex(s,c) strrchr(s,c) */
 #define srandom(s) srand(s)
@@ -119,7 +120,7 @@ extern int write();
 ** malloc.h at all.  A sad situation.  If you have compilation problems
 ** that point here, feel free to tweak or remove these declarations.
 */
-#include <malloc.h>
+/*#include <malloc.h>*/
 /*extern char* malloc();
 extern char* realloc();
 extern char* calloc();*/

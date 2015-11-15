@@ -51,19 +51,77 @@ echo "OSAHRED: $OSHARED and ODEBUG: $ODEBUG"
 #CLASSIC/ANSIC
 #
 cd $YAFRALIBS
-make all
-cd psipc/testsuite/psserver
-make all
-cd ../psclient-cons
-make all
-cd ../fork
-make all
-cd $YAFRALIBS/pssys/testsuite/datetime
-make all
-cd ../logging
-make all
-cd ../chars
-make all
+
+cd $YAFRALIBS/pssys
+rm -rf build/
+mkdir build
+cd build
+cmake ../
+make install
+
+cd ../testsuite/chars
+rm -rf build/
+mkdir build
+cd build
+cmake ../
+make install
+
+cd $YAFRALIBS/psipc
+rm -rf build/
+mkdir build
+cd build
+cmake ../
+make install
+
+cd $YAFRALIBS/pssercom
+rm -rf build/
+mkdir build
+cd build
+cmake ../
+make install
+
+cd $YAFRALIBS/psmodul
+rm -rf build/
+mkdir build
+cd build
+cmake ../
+make install
+
+cd $YAFRALIBS/psmume
+rm -rf build/
+mkdir build
+cd build
+cmake ../
+make install
+
+cd $YAFRALIBS/psgui
+rm -rf build/
+mkdir build
+cd build
+cmake ../
+make install
+
+cd $YAFRALIBS/matrix
+rm -rf build/
+mkdir build
+cd build
+cmake ../
+make install
+
+#make all
+
+#cd psipc/testsuite/psserver
+#make all
+#cd ../psclient-cons
+#make all
+#cd ../fork
+#make all
+#cd $YAFRALIBS/pssys/testsuite/datetime
+#make all
+#cd ../logging
+#make all
+#cd ../chars
+#make all
 if [ "$PS_OS" = "ps_cygwin" ]; then
 	cd $PSMATRIXLIB
 	make clean
@@ -71,17 +129,17 @@ if [ "$PS_OS" = "ps_cygwin" ]; then
 fi
 
 #CLASSIC/ADDONS
-cd $PSWHAT
-make all
-cd $PSEDIT
-make all
-cd $CMDSRV
-make all
+#cd $PSWHAT
+#make all
+#cd $PSEDIT
+#make all
+#cd $CMDSRV
+#make all
 
 #CLASSIC/TDB
-cd $TDBS
-make mpapi
-make all
+#cd $TDBS
+#make mpapi
+#make all
 
 if [ "$PS_COMPTYPE" = "ps_unix" ]; then
 	if [ "$PS_OS" != "ps_cygwin" ]; then

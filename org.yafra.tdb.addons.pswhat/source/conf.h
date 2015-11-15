@@ -36,7 +36,9 @@
 #ifndef ps_cygwin
 #ifndef ps_linux
 #ifndef ps_win
+#ifndef ps_osx
 #include <siginfo.h>
+#endif
 #endif
 #endif
 #endif

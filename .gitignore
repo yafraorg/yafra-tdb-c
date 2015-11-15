@@ -27,4 +27,17 @@
 *.x86_64
 *.hex
 
+version.h
+
 .idea/
+org.yafra.clibs/libs/matrix/build/
+org.yafra.clibs/libs/psgui/build/
+org.yafra.clibs/libs/psipc/build/
+org.yafra.clibs/libs/psmodul/build/
+org.yafra.clibs/libs/psmume/build/
+org.yafra.clibs/libs/pssercom/build/
+org.yafra.clibs/libs/pssys/build/
+org.yafra.clibs/libs/pssys/testsuite/chars/build/
+org.yafra.tdb.addons.pswhat/build/
+
+

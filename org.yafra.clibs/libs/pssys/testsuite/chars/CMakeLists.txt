@@ -14,15 +14,16 @@
 #
 # build library
 cmake_minimum_required(VERSION 3.3.2)
-project(travelDB)
 
-add_subdirectory (org.yafra.clibs/libs/pssys)
-add_subdirectory (org.yafra.clibs/libs/pssys/testsuite/chars)
-add_subdirectory (org.yafra.clibs/libs/psipc)
-add_subdirectory (org.yafra.clibs/libs/pssercom)
-add_subdirectory (org.yafra.clibs/libs/psmodul)
-add_subdirectory (org.yafra.clibs/libs/psmume)
-add_subdirectory (org.yafra.clibs/libs/psgui)
-add_subdirectory (org.yafra.clibs/libs/matrix)
-add_subdirectory (org.yafra.tdb.addons.pswhat)
+add_definitions(-D$ENV{PS_OS} -D$ENV{PS_OSTYPE})
 
+include_directories($ENV{TDBNODE}/org.yafra.clibs/include)
+
+add_custom_command(OUTPUT version.h COMMAND sh -c "$ENV{YAFRABIN}/makeversion pschartest 1.0 >$ENV{TDBNODE}/org.yafra.clibs/libs/pssys/testsuite/chars/version.h")
+
+add_executable (pschartest pschartest.c version.h)
+target_link_libraries (pschartest $ENV{WORKNODE}/libs/libpssys.a)
+
+install(TARGETS pschartest
+        RUNTIME DESTINATION $ENV{WORKNODE}/bin
+        )
