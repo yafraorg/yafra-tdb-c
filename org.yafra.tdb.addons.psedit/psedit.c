@@ -65,6 +65,10 @@ xmeditor*menu_bar*background:	#58f
 #include <getopt.h>
 #endif
 
+#ifdef ps_osx
+#include <unistd.h>
+#endif
+
 #include <psportable.h>
 
 #include <X11/Xatom.h>
