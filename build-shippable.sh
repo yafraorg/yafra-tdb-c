@@ -19,7 +19,7 @@ export YAFRAPATCH=$YAFRABUILD
 # setup general paths
 #
 export BASENODE=/work/repos
-export TDBNODE=/home/shippable/workspace/src/github.com/yafraorg/yafra-tdb-c
+export TDBNODE=/home/shippable/workspace/src/github.com/yafra-tdb-c
 export WORKNODE=/work/yafra-runtime
 export SYSADM=$BASENODE/yafra/org.yafra.sysadm
 export YAFRADB=$BASENODE/yafra-database
@@ -199,9 +199,6 @@ if [ "$OSHARED" = "1" ]; then
 	sudo ldconfig
 fi
 
-#copy python app to worknode
-test -d $WORKNODE/apps/tdbpyadmin || mkdir $WORKNODE/apps/tdbpyadmin
-cp $TDBNODE/org.yafra.tdb.admin-ui/* $WORKNODE/apps/tdbpyadmin/
 #copy perl db admin to worknode
 test -d $WORKNODE/apps/tdbdbadmin || mkdir $WORKNODE/apps/tdbdbadmin
 cp $YAFRADB/traveldb/tdb*pl $WORKNODE/apps/tdbdbadmin
@@ -269,10 +266,7 @@ test -d $GUIINSTALL || mkdir $GUIINSTALL
 test -d $DBDIR || mkdir $DBDIR
 test -d $TRAVELDBDIR || mkdir $TRAVELDBDIR
 test -d $APPDIR || mkdir $APPDIR
-test -d $APPDIR/yafrarcp || mkdir $APPDIR/yafrarcp
-test -d $APPDIR/yafrapython || mkdir $APPDIR/yafrapython
 test -d $APPDIR/tdbdbadmin || mkdir $APPDIR/tdbdbadmin
-test -d $APPDIR/tdbpyadmin || mkdir $APPDIR/tdbpyadmin
 
 # system administration files
 cp $SYSADM/shellscripts/build-install.sh $INSTDIR/install.sh
@@ -290,16 +284,13 @@ cd $TDBDB/mysql
 $TDBDB/mysql/convert.sh
 cp $TDBDB/mysql/* $TRAVELDBDIR/
 
-#python admin
-cp -r $WORKNODE/apps/tdbpyadmin/* $APPDIR/tdbpyadmin/
-cp -r $WORKNODE/apps/tdbdbadmin/* $APPDIR/tdbdbadmin/
 
 # TDB parts
 cp $TDBCONFIG/linux/mpgui.pro $ETCDIR
 cp $YAFRAEXE/* $BINDIR
 cp -P $WORKNODE/libs/* $LIBSDIR
-#copy python db query app
-cp $WORKNODE/apps/tdbpyadmin/* $APPDIR/tdbpyadmin/.
+#copy perl db query app
+cp -r $WORKNODE/apps/tdbdbadmin/* $APPDIR/tdbdbadmin/
 cp $TDBSETUP/config/linux/update-services.pl $BINDIR/tdb-setup-services.pl
 cp $TDBCONFIG/linux/MPgui $GUIINSTALL
 cp $TDBCONFIG/linux/errors $GUIINSTALL
@@ -312,7 +303,6 @@ cp $TDBCONFIG/license.txt $GUIINSTALL
 #
 chmod 755 $BINDIR/*
 chmod 755 $APPDIR/tdbdbadmin/*.pl
-chmod 755 $APPDIR/tdbpyadmin/main.py
 chmod 755 $INSTDIR/install.sh
 
 
