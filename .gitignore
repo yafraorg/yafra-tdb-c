@@ -29,7 +29,6 @@
 
 version.h
 
-.idea/
 org.yafra.clibs/libs/matrix/build/
 org.yafra.clibs/libs/psgui/build/
 org.yafra.clibs/libs/psipc/build/
